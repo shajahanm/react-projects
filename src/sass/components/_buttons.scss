@@ -1,0 +1,18 @@
+.action-btn {
+  background-color: $color-primary;
+  padding: 1.2rem 2.5rem;
+  color: $color-white;
+  transition: all 0.3s;
+  outline: none;
+  border: 2px solid white;
+  outline: 1px solid $color-primary;
+  border-radius: 10px;
+  font-size: 1.6rem;
+  font-weight: 500;
+  
+  &:hover {
+    background-color: $color-accent;
+    outline: 1px solid currentColor;
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 17%);
+  }
+}

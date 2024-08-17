@@ -1,0 +1,55 @@
+@mixin clearFix {
+  &::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+}
+
+@mixin positionCenter {
+  & {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/*
+   0   -  600 mobile 
+   600 -  900 tablet
+   900 -  1200 tablet landscape
+  1200 -  1800 desktop
+  1800+   big screen
+  
+  $break-point argument choices
+   -phone
+   -tab-port
+   -tab-land
+   -desktop
+   -big-desktop
+   */
+
+@mixin respond($break-point) {
+  @if $break-point == phone {
+    @media only screen and (max-width: 37.5em) {
+      // 1em  is = 16 so in order to get 600px using 600/16 then will get 37.5em
+      @content;
+    }
+  }
+  @if $break-point == tab-port {
+    @media only screen and (max-width: 56.25em) {
+      @content;
+    }
+  }
+  @if $break-point == tab-land {
+    @media only screen and (max-width: 75em) {
+      @content;
+    }
+  }
+  @if $break-point == big-desktop {
+    @media only screen and (max-width: 112.5em) {
+      @content;
+    }
+  }
+}
